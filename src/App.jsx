@@ -5,6 +5,7 @@ import SelectedUser from './components/SelectedUser'
 import NoSelectedUser from './components/NoSelectedUser'
 import AddUserModal from './components/AddUserModal'
 import Header from './components/UI/Header'
+import UserDataForm from './components/UserDataForm'
 
 function App() {
 
@@ -15,11 +16,11 @@ function App() {
         id: Math.random(),
         name: "Igor Gagliardi de Moraes",
         position: "Intern",
-        adress: "Fake Adrress 234",
+        adress: "Fake Adress 234",
         city: "Fake City",
         state: "fake State",
         country: "fake Country",
-        mail: "fakeemail@gmail.com",
+        email: "fakeemail@gmail.com",
         phone: "123 456 789",
         passport: "AB121399",
         birthDate: "09-12-1998"
@@ -28,11 +29,11 @@ function App() {
         id: Math.random(),
         name: "Pedro Lucas",
         position: "CEO",
-        adress: "Fake Adrress 123",
+        adress: "Fake Adress 123",
         city: "Fake City22",
         state: "fake State22",
         country: "fake Country22",
-        mail: "fakeemail22@gmail.com",
+        email: "fakeemail22@gmail.com",
         phone: "222 456 789",
         passport: "CD121399",
         birthDate: "22-12-1998"
@@ -78,6 +79,7 @@ function App() {
   )
 
 
+
  if (usersState.selectedUserId === undefined){
   content = <NoSelectedUser />
  } 
@@ -99,9 +101,9 @@ function App() {
           {content}
         </div>
       </div>
-      <p className='p-2 m-2 sticky bottom-0'>
+      <p className='p-2 m-2 sticky bottom-0 inline-block'>
         <button onClick={openAddUserModal} 
-        className='p-2 w-28 text-sx md:text-base rounded-md bg-[#d9d9d9] text-black hover:bg-[#F2F2F2] hover:font-semibold transition-all shadow-customShadow'>+ Add</button>
+        className='p-2 w-28 text-sx md:text-base rounded-md bg-[#d9d9d9] text-black hover:bg-[#F2F2F2] hover:font-semibold transition-all shadow-customShadow '>+ Add</button>
       </p>
     </main>
     </>

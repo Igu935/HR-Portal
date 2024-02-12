@@ -1,14 +1,30 @@
 import Card from "./UI/Card"
 import ProfileImg from "./ProfileImg"
+import { useState, useRef } from "react"
 import UserDataForm from "./UserDataForm"
-import { useState } from "react"
+import Button from "./UI/Button"
 export default function SelectedUser({userInfo, profilePhoto}){
 
-   
+    const [isEdit, setIsEdit] = useState(false)
+
+
+    function saveHandler(){
+
+    };
+
+
+    function handleEdit(){
+        setIsEdit(true);
+    }
+
+    function handleCancel(){
+        setIsEdit(false)
+        
+    }
 
 
 
-    return(
+    return (
         <Card>
             <div className="mx-4 py-4 flex border-b border-stone-400">
                 <div className="px-2">
@@ -17,15 +33,17 @@ export default function SelectedUser({userInfo, profilePhoto}){
                 </div>
             </div>
             <div className="mx-4 py-4 border-b border-stone-400">
-            <UserDataForm userInfo={userInfo} disabled />
-            </div>
-            <div>
-                <button
-                    disabled
-                    className="p-2 m-4 w-28 text-sx md:text-base rounded-md bg-[#d9d9d9] text-black hover:bg-[#BCBCBC] hover:font-semibold transition-all shadow-customShadow cursor-not-allowed"
-                    >edit</button>
-            </div>
+                <UserDataForm
+                    disabled={isEdit ? "" : true}
+                    userInfo={userInfo}
+                    required={isEdit ? true : ""}
+                    isEdit={isEdit} >
+                    <Button type="button" text="edit" onClick={handleEdit} classes={isEdit && "hidden"}/>
+                    <Button type="button" text="save changes" onClick={saveHandler} classes={!isEdit && "hidden"}/>
+                    <Button type="button" text="cancel" onClick={handleCancel} classes={!isEdit && "hidden"}/>
+                </UserDataForm>
 
+            </div>
         </Card>
     )
 };
